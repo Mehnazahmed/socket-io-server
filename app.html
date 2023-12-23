@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hello socket.io</title>
+  </head>
+  <body>
+    <h1 id="data">hello Football</h1>
+    <input type="name" id="name" />
+    <input type="phone" id="phone" />
+    <button onclick="handleSend()">send</button>
+
+    <!-- scripts -->
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script>
+      // const socket = io("/worldCup");
+      const socket = io("/cricketCup");
+
+      socket.on("cricketCupEvent", (data) => {
+        console.log(data);
+        document.getElementById("data").innerText = data;
+      });
+      // socket.on("fifaWorld", (data) => {
+      //   document.getElementById("data").innerText = data;
+      //   console.log(data);
+      // });
+
+      // socket.on("message", (data) => {
+      //   console.log(data);
+      // });
+      // // socket.send("hello from client");
+      // const handleSend = () => {
+      //   const name = document.getElementById("name").value;
+      //   const phone = document.getElementById("phone").value;
+      //   socket.emit("test", { name, phone  });
+      // };
+    </script>
+  </body>
+</html>
